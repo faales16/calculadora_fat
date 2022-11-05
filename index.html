@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fatima-Calculadora</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="col-3" style="margin-top:15%; margin-left: 35%;">
+        <div style="margin-top: 15px;">
+            <input type="text" class="form-control" style="width: 75%;" id="resul">
+        </div>
+        <div style="margin-top: 15px;"> 
+            <button class="btn btn-primary" onclick="clikB(1)">1</button>
+            <button class="btn btn-warning" onclick="clikB(2)">2</button>
+            <button class="btn btn-primary" onclick="clikB(3)">3</button>
+            <button class="btn btn-warning" onclick="clikB(4)">4</button>
+            <button class="btn btn-primary" onclick="clikB(5)">5</button>
+        </div>
+        <div style="margin-top: 15px;">
+            <button class="btn btn-warning" onclick="clikB(6)">6</button>
+            <button class="btn btn-primary" onclick="clikB(7)">7</button>
+            <button class="btn btn-warning" onclick="clikB(8)">8</button>
+            <button class="btn btn-primary" onclick="clikB(9)">9</button>
+            <button class="btn btn-warning" onclick="clikB(0)">0</button>
+        </div>
+        <div style="margin-top: 15px;">
+            <button class="btn btn-dark" onclick="clearB()">C</button>
+            <button class="btn btn-dark" onclick="sumaB()">+</button>
+            <button class="btn btn-dark" onclick="restaB()">-</button>
+            <button class="btn btn-dark" onclick="multiB()">*</button>
+            <button class="btn btn-dark" onclick="divB()">/</button>
+        </div>
+        <div style="margin-top: 15px;">
+            <button class="btn btn-dark" onclick="potenB()">^</button>
+            <button class="btn btn-dark" onclick="raizB()">√</button>
+            <button class="btn btn-danger" onclick="cosB()">cos</button>
+            <button class="btn btn-danger" onclick="tanB()">tan</button>
+            <button class="btn btn-danger" onclick="SaludoB()">:D</button>
+        </div>
+        <div style="margin-top: 15px;">
+            <button class="btn btn-warning" style="width: 20%;" onclick="igualB()">=</button>
+        </div>
+</div>
+<script src="js/jquery.js"></script>
+<script>
+    //$("#resul").val("Hola mundo!!!");
+    var acu= "";
+    var opera="";
+    var alge=0;
+    function igualB(){
+        if(alge==1){
+            sum=parseInt(opera)+parseInt(acu);
+            alge=0;
+            $("#resul").val(sum);
+            acu=sum;
+        }
+        if(alge==2){
+            rest=parseInt(opera)-parseInt(acu);
+            alge=0;
+            $("#resul").val(rest);
+            acu=rest;
+        }
+        if(alge==3){
+            multi=parseInt(opera)*parseInt(acu);
+            alge=0;
+            $("#resul").val(multi);
+            acu=multi;
+        }
+        if(alge==4){
+            div=parseInt(opera)/parseInt(acu);
+            alge=0;
+            $("#resul").val(div);
+            acu=div;
+        }
+        if(alge==5){
+            poten= Math.pow(parseInt(opera), parseInt(acu));
+            alge=0;
+            $("#resul").val(poten);
+            acu=poten;
+        }
+        if(alge==6){
+            raiz=Math.sqrt(parseInt(opera));
+            alge=0;
+            $("#resul").val(raiz);
+            acu=raiz;
+        }
+        if(alge==7){
+            Cos=Math.cos(parseInt(opera));
+            alge=0;
+            $("#resul").val(Cos);
+            acu=Cos;
+        }
+        if(alge==8){
+            tan=Math.tan(parseInt(opera));
+            alge=0;
+            $("#resul").val(tan);
+            acu=tan;
+        }
+    }
+    function SaludoB(){
+        $("#resul").val("Hola Fatii");
+        acu= "";
+    }
+    function sumaB(){
+        opera=acu;
+        alge=1;
+        //console.log(opera+" "+alge);
+        clearB();
+        
+    }  
+    function restaB(){
+        opera=acu;
+        alge=2;
+        clearB();
+        
+    }   
+    function multiB(){
+        opera=acu;
+        alge=3;
+        clearB();
+        
+    }      
+    function divB(){
+        opera=acu;
+        alge=4;
+        clearB();
+        
+    }
+    function potenB(){
+        opera=acu;
+        alge=5;
+        clearB();
+        
+    }
+    function raizB(){
+        opera=acu;
+        alge=6;
+        clearB();
+        
+    }  
+    function cosB(){
+        opera=acu;
+        alge=7;
+        clearB();
+    } 
+    function tanB(){
+        opera=acu;
+        alge=8;
+        clearB();
+    }                       
+    function clikB(valor){
+        acu=acu+valor;
+        $("#resul").val(acu);
+
+    }
+    function clearB(){
+        $("#resul").val("");
+        acu= "";
+    }
+    
+
+</script>
+
+</body>
+</html>
